@@ -3,11 +3,12 @@ import os
 
 import aws_cdk as cdk
 
-from cdk_cicd.cdk_cicd_stack import CdkCicdStack
+#from cdk_cicd.cdk_cicd_stack import CdkCicdStack
+from cdk_stack.s3_stack import S3Stack
 
 
 app = cdk.App()
-CdkCicdStack(app, "CdkCicdStack",
+#CdkCicdStack(app, "CdkCicdStack",
     # If you don't specify 'env', this stack will be environment-agnostic.
     # Account/Region-dependent features and context lookups will not work,
     # but a single synthesized template can be deployed anywhere.
@@ -23,6 +24,7 @@ CdkCicdStack(app, "CdkCicdStack",
     #env=cdk.Environment(account='123456789012', region='us-east-1'),
 
     # For more information, see https://docs.aws.amazon.com/cdk/latest/guide/environments.html
-    )
 
+    #)
+s3_stack = S3Stack(app, "s3-stack")
 app.synth()
